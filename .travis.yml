@@ -19,6 +19,7 @@ script:
   - echo "a" >> input.txt
   - echo "b" >> input.txt
   - echo "c" >> input.txt
+  - cat input.txt
   - make cppcheck
   - make ARGS=input.txt valgrind
   - cat out.txt
