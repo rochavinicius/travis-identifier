@@ -15,10 +15,10 @@ addons:
 install:
   - "[ $GCC = gcc ] && export GCC=gcc || true"
 script:
-  - echo "abc" > input.txt
-  - echo "a" >> input.txt
-  - echo "b" >> input.txt
-  - echo "c" >> input.txt
+  - echo "abc\n" > input.txt
+  - echo "a\n" >> input.txt
+  - echo "b\n" >> input.txt
+  - echo "c\n" >> input.txt
   - cat input.txt
   - make cppcheck
   - make ARGS=input.txt valgrind
