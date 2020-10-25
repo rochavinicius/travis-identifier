@@ -59,7 +59,7 @@ SYMBOLS=
 
 SRC = src/identifier.c
 CPPCHECK_FLAGS = --enable=all
-VALGRIND_FLAGS = --leaks-check-full --show-leak-kinds=all
+VALGRIND_FLAGS = --leak-check-full --show-leak-kinds=all
 SANITIZER_FLAGS = -fsanitize=address
 OUT = identifier
 #ALL = identifier
