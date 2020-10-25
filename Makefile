@@ -80,7 +80,7 @@ run-cppcheck:
 	cppcheck $(CPPCHECK_FLAGS) $(SRC)
 
 run-valgrind:
-	$(ARGS) > valgrind $(VALGRIND_FLAGS) ./$(OUT)
+	valgrind $(VALGRIND_FLAGS) ./$(OUT) < $(ARGS)
 	
 run-sanitizers:
 	$(C_COMPILER) $(CFLAGS) $(SANITIZER_FLAGS) -o $(TARGET1) $(SRC)
