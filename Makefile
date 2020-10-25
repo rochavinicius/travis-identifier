@@ -57,21 +57,23 @@ SYMBOLS=
 
 ### END Unity Configuration
 
-SRC = src/identifier.c
+SRC = src/identifier.h src/identifier.c
 CPPCHECK_FLAGS = --enable=all
 VALGRIND_FLAGS = --leak-check=full --show-leak-kinds=all
 SANITIZER_FLAGS = -fsanitize=address
 OUT = identifier
-#ALL = identifier
 
-#all: $(ALL)
+all: cppcheck valgrind sanitizers test
 cppcheck: clean run-cppcheck
-valgrind: clean identifier run-valgrind
+valgrind: clean test-identifier run-valgrind
 sanitizers: clean run-sanitizers run-identifier
 test: clean compile-tests run-tests
 
 identifier: src/identifier.c
 	$(C_COMPILER) $(CFLAGS) -o $(OUT) $(SRC)
+
+test-identifier: test/TestMain.c
+	$(C_COMPILER) $(CFLAGS) -o $(OUT) $(SRC) test/TestMain.c
 
 cov: src/identifier.c
 	$(C_COMPILER) $(CFLAGS) -fprofile-arcs -ftest-coverage -o $(OUT) $(SRC)
@@ -80,17 +82,17 @@ run-cppcheck:
 	cppcheck $(CPPCHECK_FLAGS) $(SRC)
 
 run-valgrind:
-	valgrind $(VALGRIND_FLAGS) ./$(OUT) < $(ARGS)
+	valgrind $(VALGRIND_FLAGS) ./$(OUT) $(ARGS)
 	
-run-sanitizers:
-	$(C_COMPILER) $(CFLAGS) $(SANITIZER_FLAGS) -o $(OUT) $(SRC)
+run-sanitizers: test/TestMain.c
+	$(C_COMPILER) $(CFLAGS) $(SANITIZER_FLAGS) -o $(OUT) $(SRC) test/TestMain.c
 	
 run-identifier:
-	- ./$(OUT) < $(ARGS)
+	- ./$(OUT) $(ARGS)
 
 # Unity tests
 compile-tests:
-	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o $(TARGET1)
+	$(C_COMPILER) $(CFLAGS) -fprofile-arcs -ftest-coverage $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o $(TARGET1)
 
 run-tests:
 	- ./$(TARGET1) -v
