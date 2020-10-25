@@ -21,5 +21,7 @@ script:
   - echo "c" > input.txt
   - make cppcheck
   - make ARGS=input.txt valgrind
+  - cat out.txt
   - make ARGS=input.txt sanitizers
+  - cat out.txt
   #- make test

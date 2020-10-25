@@ -80,13 +80,13 @@ run-cppcheck:
 	cppcheck $(CPPCHECK_FLAGS) $(SRC)
 
 run-valgrind:
-	valgrind $(VALGRIND_FLAGS) ./$(OUT) < $(ARGS)
+	valgrind $(VALGRIND_FLAGS) ./$(OUT) < $(ARGS) > out.txt
 	
 run-sanitizers:
 	$(C_COMPILER) $(CFLAGS) $(SANITIZER_FLAGS) -o $(TARGET1) $(SRC)
 	
 run-identifier:
-	- $(ARGS) > ./$(OUT)
+	- ./$(OUT) < $(ARGS) > out.txt
 
 # Unity tests
 compile-tests:
