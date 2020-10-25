@@ -83,7 +83,7 @@ run-valgrind:
 	valgrind $(VALGRIND_FLAGS) ./$(OUT) < $(ARGS) > out.txt
 	
 run-sanitizers:
-	$(C_COMPILER) $(CFLAGS) $(SANITIZER_FLAGS) -o $(TARGET1) $(SRC)
+	$(C_COMPILER) $(CFLAGS) $(SANITIZER_FLAGS) -o $(OUT) $(SRC)
 	
 run-identifier:
 	- ./$(OUT) < $(ARGS) > out.txt
