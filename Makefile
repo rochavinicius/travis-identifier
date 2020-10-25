@@ -67,7 +67,7 @@ OUT = identifier
 #all: $(ALL)
 cppcheck: clean run-cppcheck
 valgrind: clean identifier run-valgrind
-sanitizers: clean run-satinizers run-identifier
+sanitizers: clean run-sanitizers run-identifier
 test: clean compile-tests run-tests
 
 identifier: src/identifier.c
@@ -97,5 +97,5 @@ run-tests:
 
 # Clean up all
 clean:
-	$(CLEANUP) $(ALL) $(TARGET1) *.o cov* *.dSYM *.gcda *.gcno *.gcov
+	$(CLEANUP) $(ALL) $(TARGET1) $(SRC) *.o cov* *.dSYM *.gcda *.gcno *.gcov
 
