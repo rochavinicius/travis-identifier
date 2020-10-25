@@ -8,7 +8,7 @@ Test results:
 
 Important files:
 
-* [identifier.c](identifier.c)
+* [identifier.c](src/identifier.c)
 * [Makefile](Makefile)
 * [.travis.yml](.travis.yml)
 
@@ -22,10 +22,10 @@ License
 -------
 MIT License. See [LICENSE](LICENSE) for details.
 
-[main-url]: https://github.com/rafaelgaribotti/travis-identifier
-[readme-url]: https://github.com/rafaelgaribotti/travis-identifier/blob/main/README.md
+[main-url]: https://github.com/rochavinicius/travis-identifier
+[readme-url]: https://github.com/rochavinicius/travis-identifier/blob/main/README.md
 [license-url]: https://github.com/rafaelgaribotti/travis-identifier/blob/main/LICENSE
 [license-img]: https://img.shields.io/github/license/rsp/travis-hello-modern-cpp.svg
-[travis-url]: https://travis-ci.org/rafaelgaribotti/travis-identifier
-[travis-img]: https://travis-ci.org/rafaelgaribotti/travis-identifier.svg?branch=master
+[travis-url]: https://travis-ci.org/rochavinicius/travis-identifier
+[travis-img]: https://travis-ci.org/rochavinicius/travis-identifier.svg?branch=master
 [github-follow-url]: https://github.com/rafaelgaribotti
