@@ -31,9 +31,7 @@ int main(void) {
   if(valid_id) {
     length = 1;
   }
-  printf("\nchar: %c \n", achar);
   achar = fgetc(stdin);
-  printf("\nchar2: %c \n", achar);
   while(achar != '\n') {
     if(!(valid_f(achar))) {
       valid_id = 0;
