@@ -71,7 +71,7 @@ sanitizers: clean run-satinizers run-identifier
 test: clean compile-tests run-tests
 
 identifier: src/identifier.c
-	$(C_COMPILER) $(CFLAGS) -o $(TARGET1) $(SRC)
+	$(C_COMPILER) $(CFLAGS) -o $(OUT) $(SRC)
 
 cov: src/identifier.c
 	$(C_COMPILER) $(CFLAGS) -fprofile-arcs -ftest-coverage -o $(OUT) $(SRC)
