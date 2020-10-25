@@ -61,11 +61,12 @@ SRC = src/identifier.c
 CPPCHECK_FLAGS = --enable=all
 VALGRIND_FLAGS = --leaks-check=full --show-leak-kinds=all
 SANITIZER_FLAGS = -fsanitize=address
+OUT = identifier
 #ALL = identifier
 
 #all: $(ALL)
 cppcheck: clean run-cppcheck
-valgrind: clean identifier run-valgrind run-identifier
+valgrind: clean identifier run-valgrind
 sanitizers: clean run-satinizers run-identifier
 test: clean compile-tests run-tests
 
@@ -73,19 +74,19 @@ identifier: src/identifier.c
 	$(C_COMPILER) $(CFLAGS) -o $(TARGET1) $(SRC)
 
 cov: src/identifier.c
-	$(C_COMPILER) $(CFLAGS) -fprofile-arcs -ftest-coverage -o $(TARGET1) $(SRC)
+	$(C_COMPILER) $(CFLAGS) -fprofile-arcs -ftest-coverage -o $(OUT) $(SRC)
 
 run-cppcheck:
 	cppcheck $(CPPCHECK_FLAGS) $(SRC)
 
 run-valgrind:
-	valgrind $(VALGRIND_FLAGS) $(TARGET1)
+	valgrind $(VALGRIND_FLAGS) $(OUT)
 	
 run-sanitizers:
 	$(C_COMPILER) $(CFLAGS) $(SANITIZER_FLAGS) -o $(TARGET1) $(SRC)
 	
 run-identifier:
-	- ./$(TARGET1) $(ARGS)
+	- $(ARGS) >> ./$(OUT)
 
 # Unity tests
 compile-tests:
