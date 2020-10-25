@@ -41,7 +41,7 @@ CFLAGS += -Wno-unknown-pragmas
 CFLAGS += -Wstrict-prototypes
 CFLAGS += -Wundef
 CFLAGS += -Wold-style-definition
-CFLAHS += -Wfatal-errors
+CFLAGS += -Wfatal-errors
 
 TARGET_BASE1=all_tests
 TARGET1 = $(TARGET_BASE1)$(TARGET_EXTENSION)
@@ -80,13 +80,13 @@ run-cppcheck:
 	cppcheck $(CPPCHECK_FLAGS) $(SRC)
 
 run-valgrind:
-	valgrind $(VALGRIND_FLAGS) ./$(OUT) < $(ARGS) > out.txt
+	valgrind $(VALGRIND_FLAGS) ./$(OUT) < $(ARGS)
 	
 run-sanitizers:
 	$(C_COMPILER) $(CFLAGS) $(SANITIZER_FLAGS) -o $(OUT) $(SRC)
 	
 run-identifier:
-	- ./$(OUT) < $(ARGS) > out.txt
+	- ./$(OUT) < $(ARGS)
 
 # Unity tests
 compile-tests:
