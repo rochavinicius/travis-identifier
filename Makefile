@@ -97,5 +97,5 @@ run-tests:
 
 # Clean up all
 clean:
-	$(CLEANUP) $(ALL) $(TARGET1) $(SRC) *.o cov* *.dSYM *.gcda *.gcno *.gcov
+	$(CLEANUP) $(ALL) $(TARGET1) $(OUT) *.o cov* *.dSYM *.gcda *.gcno *.gcov
 
