@@ -15,14 +15,8 @@ addons:
 install:
   - "[ $GCC = gcc ] && export GCC=gcc || true"
 script:
-  - echo "abc\n" > input.txt
-  - echo "a\n" >> input.txt
-  - echo "b\n" >> input.txt
-  - echo "c\n" >> input.txt
-  - cat input.txt
+  - echo "abc" > input.txt
   - make cppcheck
   - make ARGS=input.txt valgrind
-  - cat out.txt
   - make ARGS=input.txt sanitizers
-  - cat out.txt
   #- make test
