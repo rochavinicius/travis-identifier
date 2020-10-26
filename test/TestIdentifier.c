@@ -66,3 +66,15 @@ TEST(Identifier, LongInvalidString)
     TEST_ASSERT_EQUAL(1, identifier(string));
 }
 
+TEST(Identifier, StartWithCapitalLetter)
+{
+    char string[] = "Abcd12";
+    TEST_ASSERT_EQUAL(0, identifier(string));
+}
+
+TEST(Identifier, HasCapitalLetter)
+{
+    char string[] = "aBcd12";
+    TEST_ASSERT_EQUAL(0, identifier(string));
+}
+

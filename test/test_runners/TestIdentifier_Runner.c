@@ -12,4 +12,6 @@ TEST_GROUP_RUNNER(Identifier)
   RUN_TEST_CASE(Identifier, ShortValidString);
   RUN_TEST_CASE(Identifier, LongValidString);
   RUN_TEST_CASE(Identifier, LongInvalidString);
+  RUN_TEST_CASE(Identifier, StartWithCapitalLetter);
+  RUN_TEST_CASE(Identifier, HasCapitalLetter);
 }
